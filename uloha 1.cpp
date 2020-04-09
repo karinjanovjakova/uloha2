@@ -5,17 +5,15 @@ void retazec (int pocet, char * r)
 {
 	int i; 
     char pole[37]="abcdefghijklmnopqrstuvwxyz0123456789";
-    char vznik[pocet];
-    r=vznik;
 
 
     for (i = 0; i < pocet; ++i) 
 	{
         r[i] = pole[rand() % (sizeof(pole) - 1)];
-        printf("%c" , r[i]);
+        //printf("%c" , r[i]);
     }
-
-    r[pocet] = 0;
+    r[pocet] = 48;
+   
 }
 
 int main() 
@@ -27,6 +25,6 @@ int main()
 	retazec(10,sm);
 	for (i=0;i<=10;i++)
 	{
-		printf("%c ", ret[i]);
+		printf("%c ", sm[i]);
 	}
 }
