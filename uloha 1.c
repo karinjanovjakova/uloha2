@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void retazec (int pocet, char * r[])
+void retazec (int pocet, char * r)
 {
 	int i; 
     char pole[37]="abcdefghijklmnopqrstuvwxyz0123456789";
@@ -15,10 +15,12 @@ void retazec (int pocet, char * r[])
 int main() 
 {
 	int i;
-	char * sm[10];
+	char * sm;
+	char ret[10];
+	sm=ret;
 	retazec(10,sm);
 	for (i=0;i<10;i++)
 	{
-		printf("%c ", sm[i]);
+		printf("%c ", ret[i]);
 	}
 }
