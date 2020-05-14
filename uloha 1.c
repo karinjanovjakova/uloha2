@@ -15,10 +15,8 @@ void retazec (int pocet, char * r)
 int main() 
 {
 	int i;
-	char * sm;
 	char ret[10];
-	sm=ret;
-	retazec(10,sm);
+	retazec(10, (char *)ret );
 	for (i=0;i<10;i++)
 	{
 		printf("%c ", ret[i]);
