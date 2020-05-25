@@ -16,6 +16,7 @@ int main()
 {
 	int i;
 	char ret[10];
+	srand(time(0));
 	retazec(10, (char *)ret );
 	for (i=0;i<10;i++)
 	{
