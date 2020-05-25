@@ -17,7 +17,7 @@ int main()
 	int i;
 	char ret[10];
 	srand(time(0));
-	retazec(10, (char *)ret );
+	retazec(10, ret );
 	for (i=0;i<10;i++)
 	{
 		printf("%c ", ret[i]);
