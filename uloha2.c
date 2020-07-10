@@ -9,3 +9,4 @@ typedef struct
 	float *elem;
 } MAT;
 
+"# uloha2" 
