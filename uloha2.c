@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define ELEM(M,r,c) (M->elem[(M->cols)*r+c])
+#define ELEM(M,r,c) (M->elem[(M->cols)*r+c]) 
+
 
 typedef struct
 {
@@ -8,5 +9,3 @@ typedef struct
 	unsigned int cols;
 	float *elem;
 } MAT;
-
-"# uloha2" 
