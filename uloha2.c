@@ -63,18 +63,23 @@ char mat_multiply(MAT *a,MAT *b,MAT *c)
 {
 	int i,j,k;
 	float prvok=0.0;
-	for (i=0;i<a->rows;i++)
+	if (a->cols==b->rows)
 	{
-		for (j=0;j<b->cols;j++)
+		for (i=0;i<a->rows;i++)
 		{
-			for (k=0;k<a->cols;k++)
+			for (j=0;j<b->cols;j++)
 			{
-				prvok=prvok+ELEM(a,i,k)*ELEM(b,k,j);
+				for (k=0;k<a->cols;k++)
+				{
+					prvok=prvok+ELEM(a,i,k)*ELEM(b,k,j);
+				}
+				ELEM(c,i,j)=prvok;
+				prvok=0.0;
 			}
-			ELEM(c,i,j)=prvok;
-			prvok=0.0;
 		}
 	}
+	else 
+		printf ("Matice sa nedajú vynásobi.");
 }
 
 void mat_destroy (MAT *mat)
@@ -101,7 +106,8 @@ main()
 	
 	c=mat_create_with_type(a->rows, b->cols);
 	mat_multiply(a,b,c);
-	mat_print(c);
+	if (a->cols==b->rows)
+		mat_print(c);
 	
 	
 	mat_destroy(a);
