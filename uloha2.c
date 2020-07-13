@@ -90,6 +90,7 @@ void mat_destroy (MAT *mat)
 
 main()
 {
+	srand(time(0));
 	MAT *a, *b, *c;
 	unsigned int rows,cols;
 	printf("Zadaj rozmery prvej matice:\n");
