@@ -57,15 +57,41 @@ void mat_print(MAT *mat)
 	printf("\n");
 }
 
+char mat_multiply(MAT *a,MAT *b,MAT *c)
+{
+	int i,j,k;
+	float prvok=0.0;
+	for (i=0;i<a->rows;i++)
+	{
+		for (j=0;j<b->cols;j++)
+		{
+			for (k=0;k<a->cols;k++)
+			{
+				prvok=prvok+ELEM(a,i,k)*ELEM(b,k,j);
+			}
+			ELEM(c,i,j)=prvok;
+			prvok=0.0;
+		}
+	}
+}
 
 
 
 main()
-{	MAT *a;
+{
+	MAT *a, *b, *c;
 	unsigned int rows,cols;
 	printf("Zadaj rozmery prvej matice:\n");
 	scanf("%d %d",&rows,&cols);
 	a=mat_create_with_type(rows, cols);
 	mat_random(a);
 	mat_print(a);
+	printf("Zadaj rozmery druhej matice:\n");
+	scanf("%d %d",&rows,&cols);
+	b=mat_create_with_type(rows, cols);
+	mat_random(b);
+	mat_print(b);
+	c=mat_create_with_type(a->rows, b->cols);
+	mat_multiply(a,b,c);
+	mat_print(c);
 }
