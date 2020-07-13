@@ -10,6 +10,8 @@ typedef struct
 	float *elem;
 } MAT;
 
+
+
 MAT *mat_create_with_type(unsigned int rows, unsigned int cols)
 {
 	MAT *mat=(MAT *)malloc(sizeof(MAT));
@@ -75,7 +77,11 @@ char mat_multiply(MAT *a,MAT *b,MAT *c)
 	}
 }
 
-
+void mat_destroy (MAT *mat)
+{
+	free(mat->elem);
+	free(mat);
+}
 
 main()
 {
@@ -86,12 +92,19 @@ main()
 	a=mat_create_with_type(rows, cols);
 	mat_random(a);
 	mat_print(a);
+	
 	printf("Zadaj rozmery druhej matice:\n");
 	scanf("%d %d",&rows,&cols);
 	b=mat_create_with_type(rows, cols);
 	mat_random(b);
 	mat_print(b);
+	
 	c=mat_create_with_type(a->rows, b->cols);
 	mat_multiply(a,b,c);
 	mat_print(c);
+	
+	
+	mat_destroy(a);
+	mat_destroy(b);
+	mat_destroy(c);
 }
