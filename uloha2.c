@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> 
 #define ELEM(M,r,c) (M->elem[(M->cols)*r+c]) 
 
 
