@@ -88,6 +88,22 @@ void mat_destroy (MAT *mat)
 	free(mat);
 }
 
+void mat_unit(MAT *mat)
+{
+	int i,j;
+	
+	for (i=0;i<mat->rows;i++)
+	{
+		for (j=0;j<mat->cols;j++)
+		{
+			if (i==j)
+				ELEM(mat,i,j)=1.0;
+			else
+				ELEM(mat,i,j)=0.0;
+		}
+	}
+}
+
 main()
 {
 	srand(time(0));
@@ -96,6 +112,7 @@ main()
 	printf("Zadaj rozmery prvej matice:\n");
 	scanf("%d %d",&rows,&cols);
 	a=mat_create_with_type(rows, cols);
+	//mat_unit(a);
 	mat_random(a);
 	mat_print(a);
 	
@@ -107,7 +124,7 @@ main()
 	
 	c=mat_create_with_type(a->rows, b->cols);
 	mat_multiply(a,b,c);
-	//if (a->cols==b->rows)
+	if (a->cols==b->rows)
 	mat_print(c);
 	
 	
